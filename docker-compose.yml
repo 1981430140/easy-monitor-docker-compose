@@ -66,7 +66,7 @@ services:
     environment: 
       <<: *mysql-environment
       <<: *redis-environment
-      XPROFILER_CONSOLE_URL: "http://192.168.198.102:8443"   # xprofiler-console 服务地址，这里最好配置服务器地址，要不然在界面操作 文件-》转储 时会失败
+      XPROFILER_CONSOLE_URL: "http://127.0.0.1:8443"   # xprofiler-console 服务地址，这里最好配置服务器地址，要不然在界面操作 文件-》转储 时会失败
       XTRANSIT_MANAGER_URL: http://xtransit-manager:8543       # xtransit-manager 服务地址，也可以填服务器ip
 
   xtransit-manager:
