@@ -35,10 +35,11 @@ services:
     restart: always
     # ports: 
     #   - "3306:3306"
-    volumes:  # 执行sql初始化数据库，这操作第一次启动时会导致下面几个依赖该数据库的服务启动失败，耐心等待一会即可，容器会自动重启
+    volumes:  # 执行sql初始化数据库，数据库没初始化成功时会导致下面几个依赖该数据库的服务启动失败，耐心等待一会即可，容器会自动重启
       - "./db/xprofiler_console/init.sql:/docker-entrypoint-initdb.d/1_init.sql"
       - "./db/xprofiler_logs/init.sql:/docker-entrypoint-initdb.d/2_init.sql"
       - "./db/xprofiler_logs/date.sql:/docker-entrypoint-initdb.d/3_date.sql"
+      - "./mysql:/var/lib/mysql"   # 挂载数据目录
     environment: 
       MYSQL_ROOT_PASSWORD: "123456"
       MYSQL_ROOT_HOST: "%"
