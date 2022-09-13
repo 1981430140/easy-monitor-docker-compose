@@ -17,3 +17,7 @@ docker-compose down
 
 ```
 **4. 浏览 http://127.0.0.1:8443**
+
+### Infrastructure model
+
+![Infrastructure model](.infragenie/infrastructure_model.png)
